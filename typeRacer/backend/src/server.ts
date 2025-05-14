@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 // Middleware
 app.use(cors({
-  origin: 'https://type-racer-uggc.vercel.app/',
+  origin: 'https://type-racer-uggc.vercel.app',
   credentials: true,
 }));
 app.use(express.json());
