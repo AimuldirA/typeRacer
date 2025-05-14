@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+
+:root{
+    --primary:#F0E7DB;
+    --secondary:#272835;
+    --accent:#E5CEA5;
+}
+
+.bg-primary{
+    @apply bg-[var(--primary)];
+}
+
+.text-primary{
+    @apply text-[var(--primary)];
+}
+
+.bg-secondary{
+    @apply bg-[var(--secondary)];
+}
+
+.text-secondary{
+    @apply text-[var(--secondary)];
+}
+.bg-accent{
+    @apply bg-[var(--accent)];
+}
+
+body {
+    font-family: 'Orelega One', sans-serif;
+  }
+  .input::placeholder {
+    color: var(--primary);
+  }
+  .input {
+    color: var(--primary);
+  }
+  body{
+    background-color: #F0E7DB;
+  }
