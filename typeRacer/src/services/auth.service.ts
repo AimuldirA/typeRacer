@@ -12,7 +12,7 @@ export type CreateUserParams = {
 
 export const signup = async (values: CreateUserParams) => {
   try {
-    const response = await axios.post(`${API_URL}/signUp`, values.data);
+    const response = await axios.post(`${API_URL}/auth/signUp`, values.data);
     if (response.status === 201) return response.data;
     throw new Error("Бүртгэл амжилтгүй боллоо");
   } catch (error: any) {
@@ -25,7 +25,7 @@ export const signup = async (values: CreateUserParams) => {
 
 export const login = async (values: CreateUserParams) => {
   try {
-    const res = await axios.post(`${API_URL}/login`, values.data, {
+    const res = await axios.post(`${API_URL}/auth/login`, values.data, {
       withCredentials: true,
     });
     console.log("LOGIN", res.data);
@@ -39,7 +39,7 @@ export const login = async (values: CreateUserParams) => {
 
 export const logout = async () => {
   try {
-    await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
+    await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
     localStorage.removeItem("token");
   } catch (error) {
     console.error("Гарахад алдаа гарлаа", error);
