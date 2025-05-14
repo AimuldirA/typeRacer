@@ -10,6 +10,8 @@ import {
 import { saveGame } from "../services/saveGame";
 import socket from "../services/socket";
 
+const API_URL = import.meta.env.VITE_API_URL as string;
+
 const ChooseGameMode = () => {
     const navigate = useNavigate();
 
@@ -39,7 +41,7 @@ const ChooseGameMode = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const statusRes = await fetch("http://localhost:5000/auth/auth-status", {
+                const statusRes = await fetch(`${API_URL}/auth/auth-status`, {
                     method: "GET",
                     credentials: "include",
                 });
@@ -49,7 +51,7 @@ const ChooseGameMode = () => {
                     setName(statusData.name);
                     console.log("SetName", name);
                 }
-                const userRes = await fetch("http://localhost:5000/auth/getUser", {
+                const userRes = await fetch(`${API_URL}/auth/getUser`, {
                     method: "GET",
                     credentials: "include",
                 });

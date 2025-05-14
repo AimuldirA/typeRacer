@@ -24,10 +24,12 @@
 
 import useSWR from "swr";
 
+const API_URL = import.meta.env.VITE_API_URL as string;
+
 const fetcher = (url: string) => fetch(url, { credentials: "include" }).then(res => res.json());
 
 export const useAuthStatus = () => {
-  const { data, mutate } = useSWR("http://localhost:5000/auth/auth-status", fetcher, {
+  const { data, mutate } = useSWR(`${API_URL}/auth/auth-status`, fetcher, {
     refreshInterval: 0, // автоматаар дахин шалгахгүй
   });
 

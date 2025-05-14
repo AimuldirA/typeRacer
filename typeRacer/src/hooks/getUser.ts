@@ -1,4 +1,6 @@
 // getUser.ts
+
+const API_URL = import.meta.env.VITE_API_URL as string;
 export interface User {
     id: string;
     username: string;
@@ -6,7 +8,7 @@ export interface User {
   
   const getUser = async (): Promise<User | null> => {
     try {
-      const res = await fetch("http://localhost:5000/auth/getUser", {
+      const res = await fetch(`${API_URL}/auth/getUser`, {
         method: "GET",
         credentials: "include"
       });
