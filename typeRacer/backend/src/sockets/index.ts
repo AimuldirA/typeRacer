@@ -17,7 +17,10 @@ interface CreateRoomResponse {
 const socketIoSetup = (server: HTTPServer) => {
   const io = new Server(server, {
     cors: {
-      origin: 'https://type-racer-uggc.vercel.app',
+      origin: [
+      "http://localhost:5173",
+      "https://type-racer-uggc.vercel.app"
+    ],
       credentials: true,
     },
   });
