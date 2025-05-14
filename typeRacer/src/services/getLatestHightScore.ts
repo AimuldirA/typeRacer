@@ -1,9 +1,10 @@
 import axios from "axios"
 
+const API_URL = import.meta.env.VITE_API_URL as string;
 
 export const getLatestHightScore  = async()=>{
     try{
-       const response = await axios.get('http://localhost:5000/gameHistory/latestHightScore')
+       const response = await axios.get(`${API_URL}/gameHistory/latestHightScore`)
        return response.data;
     }catch(error){
         console.error("Алдаа гарлаа   Latest hight score:", error);
@@ -13,7 +14,7 @@ export const getLatestHightScore  = async()=>{
 
 export const getHallOfFame = async()=>{
     try{
-        const response = await axios.get('http://localhost:5000/gameHistory/hallOfFame')
+        const response = await axios.get(`${API_URL}/gameHistory/hallOfFame`)
         return response.data;
     }catch(error){
         console.error("Алдаа гарлаа   Hall of fame:", error);
