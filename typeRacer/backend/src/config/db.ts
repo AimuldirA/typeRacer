@@ -1,13 +1,20 @@
 import mongoose from "mongoose";
 
-const connectDB = async () =>{
-    try{
-        await mongoose.connect(process.env.MONGO_URL || "mongodb://localhost:27017/typeRacer");
-        console.log("Mongodb holbogdson");
-    } catch(err) {
-        console.error('MongoDb holbolt aldaatai', err);
-        process.exit(1);
+const connectDB = async () => {
+  try {
+    const uri = process.env.MONGO_URI;
+
+    if (!uri) {
+      throw new Error("❌ MONGO_URI орчны хувьсагч тодорхойлогдоогүй байна!");
     }
-}
+
+    await mongoose.connect(uri);
+
+    console.log("✅ MongoDB Atlas-т холбогдлоо");
+  } catch (error) {
+    console.error("❌ MongoDB холболтын алдаа:", error);
+    process.exit(1);
+  }
+};
 
 export default connectDB;
