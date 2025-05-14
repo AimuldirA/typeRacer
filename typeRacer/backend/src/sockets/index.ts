@@ -18,7 +18,6 @@ const socketIoSetup = (server: HTTPServer) => {
   const io = new Server(server, {
     cors: {
       origin: [
-      "http://localhost:5173",
       "https://type-racer-uggc.vercel.app"
     ],
       credentials: true,

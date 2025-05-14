@@ -17,20 +17,9 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // Middleware
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://type-racer-uggc.vercel.app'
-];
-
 app.use(cors({
-  origin: (origin, callback) => {
-    // origin undefined байж болно (postman, server-to-server)
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    callback(new Error(`CORS blocked for origin: ${origin}`));
-  },
-  credentials: true
+  origin: 'https://type-racer-uggc.vercel.app',
+  credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
