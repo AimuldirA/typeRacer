@@ -10,7 +10,7 @@ export const saveGame = async (data: choseGame) => {
 
     try {
         const response = await axios.post(
-            "http://localhost:5000/game/getTekst",
+            `${API_URL}/game/getTekst`,
             data,
             {
                 withCredentials: true
